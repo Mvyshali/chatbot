@@ -62,7 +62,3 @@ const saveMessage = async (sender, receiver, message) => {
     };
     await dynamoDB.put(params).promise();
 };
-socket.on("message", async ({ sender, receiver, message }) => {
-    await saveMessage(sender, receiver, message);
-    io.emit("message", { sender, message });
-});
